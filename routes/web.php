@@ -39,3 +39,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['get', 'post', 'delete'], '/edit/{id}', 'SettingsController@edit')->name('settingsEdit');
     });
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

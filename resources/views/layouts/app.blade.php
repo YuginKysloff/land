@@ -1,34 +1,87 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-    <head>
-        @section('head')
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
-            <meta name="apple-mobile-web-app-capable" content="yes">
-            <meta name="HandheldFriendly" content="True">
-            <meta name="apple-mobile-web-app-status-bar-style" content="black">
-            <meta name="description" content="{{ $settings['description'] }}">
-            <meta name="keywords" content="{{ $settings['keywords'] }}">
-            <meta name="author" content="{{ $settings['author'] }}">
-            <title>{{ $settings['title'] }}</title>
-            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}" />
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/vegas.min.css') }}">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.bxslider.css') }}">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-            <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-        @show
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        @yield('header')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         @yield('content')
-        @yield('footer')
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('js/vegas.min.js') }}"></script>
-        <script src="{{ asset('js/sliders.js') }}"></script>
-        <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
-        </body>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
 </html>
