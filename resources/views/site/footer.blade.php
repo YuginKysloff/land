@@ -5,7 +5,7 @@
                 <div class="email-form">
                     <h4>Свяжитесь с нами и помните: <span>обо всем можно договориться!</span></h4>
                     <div class="newsletter">
-                        <form action="{{ route('home') }}" name="newsletter" class="newsletter" method="post">
+                        <form action="{{ route('index') }}" name="newsletter" class="newsletter" method="post">
                             @if(isset($errors->messages()['name']))
                                 <div class="form_error">
                                     {!! $errors->messages()['name'][0] !!}

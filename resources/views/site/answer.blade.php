@@ -2,7 +2,7 @@
 
 @section('header')
     @parent
-    <meta http-equiv="refresh" content="6;url={{ route('home') }}" />
+    <meta http-equiv="refresh" content="6;url=/" />
 @endsection
 
 @section('header')

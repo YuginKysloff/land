@@ -2,7 +2,7 @@
     <header id="header" >
         <div class="container">
             <div class="welcome">
-                <div class="logo animated fadeInDown"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt="Yugin Kysloff studio"></a></div>
+                <div class="logo animated fadeInDown"><a href="{{ route('index') }}"><img src="{{ asset('images/logo.png') }}" alt="Yugin Kysloff studio"></a></div>
                 <div class="social-icons">
                     <ul class="animated fadeInDownBig">
                         <li><a href="{{ $settings['vk'] }}" target="_blank"><i class="fa fa-fw fa-vk"></i></a></li>

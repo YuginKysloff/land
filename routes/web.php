@@ -1,9 +1,9 @@
 <?php
 
-Route::match(['get', 'post'], '/', 'IndexController@index')->name('home');
-Route::get('/#footer', 'IndexController@index')->name('home');
+Route::match(['get', 'post'], '/', 'IndexController@index')->name('index');
+Route::get('/#footer', 'IndexController@index')->name('index');;
 
-Route::auth();
+Auth::routes();
 
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -39,6 +39,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['get', 'post', 'delete'], '/edit/{id}', 'SettingsController@edit')->name('settingsEdit');
     });
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
