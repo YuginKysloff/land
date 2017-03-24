@@ -7,8 +7,9 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>AdminLTE 2 | Starter</title>
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}" />
+            <meta name="csrf-token" content="{{ csrf_token() }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
             <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/skin-blue.min.css') }}">
@@ -37,7 +38,7 @@
                                 <li class="dropdown user user-menu">
                                     <a href="#">
                                         <img src="/images/avatar.jpg" class="user-image" alt="User Image">
-                                        <span>Alexander Pierce</span>
+                                        {{--<span>{{ Auth::user()->name }}</span>--}}
                                     </a>
                                 </li>
                             </ul>
@@ -59,8 +60,8 @@
                             </li>
                             <li>
                                 <a href="/users">
-                                    <i class="fa fa-user"></i>
-                                    <span>Пользователи</span>
+                                    <i class="fa fa-phone"></i>
+                                    <span>CRM</span>
                                 </a>
                             </li>
                             <li class="treeview">
@@ -76,11 +77,40 @@
                                     <li><a href="#">Link in level 2</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="treeview">
                                 <a href="#">
+                                    <i class="fa fa-user"></i>
+                                    <span>Пользователи</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#">Link in level 2</a></li>
+                                    <li><a href="#">Link in level 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-industry"></i>
+                                    <span>Настройки сайта</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#">Link in level 2</a></li>
+                                    <li><a href="#">Link in level 2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa  fa-sign-out"></i>
                                     <span>Выход</span>
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                         </ul>
                     </section>
@@ -96,7 +126,7 @@
                         Anything you want
                     </div>
                     <!-- Default to the left -->
-                    <strong>Copyright &copy; <? ?> <a href="#">Company</a>.</strong> All rights reserved.
+                    <strong>Copyright &copy; <?=date('Y')?> <a href="#">Company</a>.</strong> All rights reserved.
                 </footer>
             @show
         </div>

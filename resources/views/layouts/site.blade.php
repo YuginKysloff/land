@@ -12,12 +12,12 @@
         <meta name="author" content="{{ $settings['author'] }}">
         <title>{{ $settings['title'] }}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/vegas.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.bxslider.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/vegas.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery.bxslider.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     @show
 </head>
@@ -50,21 +50,21 @@
                         <h4>Свяжитесь с нами и помните: <span>обо всем можно договориться!</span></h4>
                         <div class="newsletter">
                             <form action="{{ route('index') }}" name="newsletter" class="newsletter" method="post">
-                                @if(isset($errors->messages()['name']))
+                                @if($errors->has('name'))
                                     <div class="form_error">
-                                        {!! $errors->messages()['name'][0] !!}
+                                        {{ $errors->first('name') }}
                                     </div>
                                 @endif
                                 <input type="text" name="name" id="name" placeholder="ВАШЕ ИМЯ*">
-                                @if(isset($errors->messages()['email']))
+                                @if($errors->has('email'))
                                     <div class="form_error">
-                                        {!! $errors->messages()['email'][0] !!}
+                                        {{ $errors->first('email') }}
                                     </div>
                                 @endif
                                 <input type="text" name="email" id="email" placeholder="ВАШ EMAIL*">
-                                @if(isset($errors->messages()['message']))
+                                    @if($errors->has('message'))
                                     <div class="form_error">
-                                        {!! $errors->messages()['message'][0] !!}
+                                        {{ $errors->first('message') }}
                                     </div>
                                 @endif
                                 <textarea name="message" id="message" cols="40" rows="2" placeholder="ВВЕДИТЕ СООБЩЕНИЕ*"></textarea>
