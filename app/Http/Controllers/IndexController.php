@@ -38,8 +38,10 @@ class IndexController extends Controller
                 'email' => 'Поле :attribute должно соответствовать email адресу'
             ]);
 
+            // Send mail to site admin
             Mail::to(env('MAIL_ADMIN'))->send(new CallBackFromStudioSite($request));
             Session::flash('success', 'Ваше сообщение отправлено!');
+
             return view('site.answer', $this->data);
         } else {
 
