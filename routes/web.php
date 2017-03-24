@@ -3,14 +3,15 @@
 Route::match(['get', 'post'], '/', 'IndexController@index')->name('index');
 Route::get('/#footer', 'IndexController@index')->name('index');;
 
-Auth::routes();
+Route::auth();
 
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //Admin statistics view (default)
     Route::get('/', function () {
-        Route::get('/', 'StatisticsController@index')->name('statistics');
+//        Route::get('/', 'StatisticsController@index')->name('statistics');
+        return view('admin.statistics');
     });
 
     //Admin slides section
