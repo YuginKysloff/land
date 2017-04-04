@@ -6,7 +6,7 @@
         <section class="content-header">
             <h1>
                 Статистика
-                <small>Общая информация по посещениям сайта</small>
+                <small>Общая информация по работе сайта</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>

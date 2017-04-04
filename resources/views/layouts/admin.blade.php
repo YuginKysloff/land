@@ -5,7 +5,7 @@
         @section('head')
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title>AdminLTE 2 | Starter</title>
+            <title>{{ $title }}</title>
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -37,7 +37,7 @@
                             <ul class="nav navbar-nav">
                                 <li class="dropdown user user-menu">
                                     <a href="#">
-                                        <img src="/images/avatar.jpg" class="user-image" alt="User Image">
+                                        <img src="{{ asset('images/avatar.jpg') }}" class="user-image" alt="User's avatar">
                                         <span>{{ Auth::user()->name }}</span>
                                     </a>
                                 </li>
@@ -53,42 +53,28 @@
                         <ul class="sidebar-menu">
                             <li class="header">Админ меню</li>
                             <li class="active">
-                                <a href="/admin">
+                                <a href="{{ route('statistics') }}">
                                     <i class="fa fa-line-chart"></i>
                                     <span>Статистика</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/users">
+                                <a href="#">
                                     <i class="fa fa-phone"></i>
                                     <span>CRM</span>
                                 </a>
                             </li>
-                            <li class="treeview">
-                                <a href="#">
+                            <li>
+                                <a href="{{ route('slides') }}">
                                     <i class="fa fa-file-picture-o"></i>
                                     <span>Слайды</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
                                 </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#">Link in level 2</a></li>
-                                    <li><a href="#">Link in level 2</a></li>
-                                </ul>
                             </li>
-                            <li class="treeview">
-                                <a href="#">
+                            <li>
+                                <a href="{{ route('users') }}">
                                     <i class="fa fa-user"></i>
                                     <span>Пользователи</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
                                 </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#">Link in level 2</a></li>
-                                    <li><a href="#">Link in level 2</a></li>
-                                </ul>
                             </li>
                             <li class="treeview">
                                 <a href="#">
