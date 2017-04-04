@@ -37,6 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['get', 'post'], '/add', 'SettingsController@add')->name('settingsAdd');
 
         //Admin/settings/edit/id
-        Route::match(['get', 'post', 'delete'], '/edit/{id}', 'SettingsController@edit')->name('settingsEdit');
+        Route::match(['get', 'post', 'delete'], '/edit/{id}', 'SettingsController@edit')->where('id', '[0-9]+')->name('settingsEdit');
     });
 });

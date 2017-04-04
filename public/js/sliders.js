@@ -16,7 +16,7 @@ $(document).ready(function(){
                             'images/video.webm'
                         ],
                         loop: true,
-                        mute: true
+                        mute: false
 
                     }
                 }

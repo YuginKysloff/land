@@ -38,7 +38,7 @@
                                 <li class="dropdown user user-menu">
                                     <a href="#">
                                         <img src="/images/avatar.jpg" class="user-image" alt="User Image">
-                                        {{--<span>{{ Auth::user()->name }}</span>--}}
+                                        <span>{{ Auth::user()->name }}</span>
                                     </a>
                                 </li>
                             </ul>

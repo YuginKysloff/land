@@ -36,6 +36,6 @@ class CallBackFromStudioSite extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.callback');
+        return $this->subject('Сообщение с сайта Yugin Kysloff Studio')->view('mail.callback');
     }
 }
