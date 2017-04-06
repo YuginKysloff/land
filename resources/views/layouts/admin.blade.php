@@ -36,7 +36,7 @@
                         <div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown user user-menu">
-                                    <a href="#">
+                                    <a href="{{ route('users') }}">
                                         <img src="{{ asset('images/avatar.jpg') }}" class="user-image" alt="User's avatar">
                                         <span>{{ Auth::user()->name }}</span>
                                     </a>

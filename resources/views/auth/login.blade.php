@@ -59,6 +59,7 @@
                 </div>
             </form>
             <p class="login-box-msg"><a href="#">Забыл пароль?</a></p>
+            <p class="login-box-msg"><a href="https://oauth.vk.com/authorize?client_id=5968898&display=page&redirect_uri=http://land.loc/test&scope=4194304&response_type=code&v=5.63">Вход через ВК</a></p>
         </div>
     </div>
         <script src="{{ asset('js/jquery.js') }}"></script>

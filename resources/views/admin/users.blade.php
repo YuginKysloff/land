@@ -12,10 +12,10 @@
             <h1>
                 Секция управления пользователями
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
+            {{--<ol class="breadcrumb">--}}
+                {{--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>--}}
+                {{--<li class="active">Here</li>--}}
+            {{--</ol>--}}
         </section>
 
         <!-- Main content -->
@@ -32,10 +32,10 @@
                             <table id="table__slides" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Вкл/Выкл</th>
+                                    <th style="width: 5%;">Вкл/Выкл</th>
                                     <th>Имя</th>
                                     <th>Email</th>
-                                    <th>Операции</th>
+                                    <th colspan="2" style="width: 10%;">Операции</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -48,10 +48,12 @@
                                         <td>{!! $user->email !!}</td>
                                         <td>
                                             <a href="#" title="Редактирование записи">
-                                                <i class="fa fa-edit fa-2x" style="margin: 0 10px;"></i>
+                                                <i class="fa fa-edit fa-2x"></i>
                                             </a>
+                                        </td>
+                                        <td>
                                             <a href="#" title="Удаление записи" onclick="return confirm('Вы точно хотите удалить запись')">
-                                                <i class="fa fa-close fa-2x" style="margin: 0 10px;"></i>
+                                                <i class="fa fa-close fa-2x"></i>
                                             </a>
                                         </td>
                                     </tr>

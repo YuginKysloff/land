@@ -179,7 +179,7 @@ return [
         //HTML&FORMS
 //        Collective\Html\HtmlServiceProvider::class,
         //Dev
-//        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
